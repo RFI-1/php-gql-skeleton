@@ -1,19 +1,19 @@
 <?php
 
-namespace Vertuoza\Repositories\Settings\UnitTypes\Models;
+namespace Vertuoza\Repositories\Settings\Collaborators\Models;
 
+use Vertuoza\Entities\Settings\CollaboratorEntity;
+use Vertuoza\Repositories\Settings\UnitTypes\Models\UnitTypeModel;
 use Vertuoza\Repositories\Settings\UnitTypes\UnitTypeMutationData;
-use Vertuoza\Entities\Settings\UnitTypeEntity;
 
-class UnitTypeMapper
+class CollaboratorMapper
 {
-  public static function modelToEntity(UnitTypeModel $dbData): UnitTypeEntity
+  public static function modelToEntity(CollaboratorModel $dbData): CollaboratorEntity
   {
-    $entity = new UnitTypeEntity();
+    $entity = new CollaboratorEntity();
     $entity->id = $dbData->id;
-    $entity->name = $dbData->label;
-    $entity->isSystem = $dbData->tenant_id === null;
-
+    $entity->name = $dbData->name;
+    $entity->firstName = $dbData->firstName;
     return $entity;
   }
 

@@ -1,21 +1,19 @@
-<?php
-
+<?php 
 namespace Vertuoza\Api\Graphql\Resolvers;
 
+use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\ObjectType;
-use Vertuoza\Api\Graphql\Resolvers\Settings\Collaborators\CollaboratorQuery;
-use Vertuoza\Api\Graphql\Resolvers\Settings\UnitTypes\UnitTypeQuery;
+use GraphQL\Type\Definition\ResolveInfo;
+use Vertuoza\Api\Graphql\Resolvers\Settings\UnitTypes\UnitTypeMutation;
 use Vertuoza\Api\Graphql\Types;
 
-final class Query extends ObjectType
-{
+class Mutation extends ObjectType {
   public function __construct()
   {
     $config = [
       'fields' => function () {
         return [
-          ...UnitTypeQuery::get(),
-          ...CollaboratorQuery::get(),
+          ...UnitTypeMutation::get(),
         ];
       }
     ];
